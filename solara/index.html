@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#EDECDB">
+  <meta name="description" content="SOLARA Beach Club — интерактивная карта и учебное бронирование пляжных зон отдыха.">
+  <title>SOLARA — Beach Club / Бронирование</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+  <svg class="svg-sprites" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="ic-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="ic-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="ic-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="ic-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="ic-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="ic-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3zM9 3v15M15 6v15"/></symbol>
+    <symbol id="ic-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="ic-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="ic-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="ic-reset" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 3 7M3 4v7h7"/></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="ic-sliders" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+    <symbol id="ic-umbrella" viewBox="0 0 24 24"><path d="M2 12a10 10 0 0 1 20 0H2ZM12 2v17a3 3 0 0 0 6 0"/></symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
+    <symbol id="ic-sparkle" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></symbol>
+    <symbol id="ic-bag" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="13" rx="2"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+  </svg>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="SOLARA, на главную">
+        <span class="brand__main">SOLARA<span class="brand__asterisk">✳</span></span>
+        <span class="brand__sub">B E A C H&nbsp; C L U B</span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <a href="#about">О клубе</a><a href="#zones">Зоны отдыха</a><a href="#rules">Правила</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="btn btn--light bookings-trigger" data-action="show-bookings" aria-label="Открыть мои бронирования">
+          <svg class="icon"><use href="#ic-bag"/></svg><span>Мои брони</span><span class="booking-count" id="header-bookings">0</span>
+        </button>
+        <button type="button" class="icon-button mobile-menu-button" data-action="toggle-menu" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню"><svg class="icon"><use href="#ic-menu"/></svg></button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="booking-stage" id="beach-map" aria-label="Интерактивная карта пляжа">
+        <div class="map-column">
+        <div class="map-viewport" id="map-viewport" aria-label="Карта: перетаскивайте для перемещения. Колёсико прокручивает страницу; Ctrl или Command с колёсиком масштабирует карту. Также доступны кнопки масштаба">
+          <div class="map-world" id="map-world">
+            <img class="map-image" src="./assets/beach-map.webp" alt="Аэрофотография пляжа с бирюзовым морем, лежаками и беседками" draggable="false">
+            <div class="map-markers" id="map-markers"></div>
+          </div>
+          <div class="map-glass-top"><span class="map-label"><span class="pulse-dot"></span> ИНТЕРАКТИВНАЯ КАРТА <span class="map-label__sep">/</span> <span id="map-count">15 МЕСТ</span></span></div>
+          <button class="map-mobile-filter btn" id="mobile-filter-button" data-action="toggle-filters" aria-expanded="false" aria-controls="filters-panel"><svg class="icon"><use href="#ic-sliders"/></svg> Фильтры</button>
+          <div class="map-controls" aria-label="Управление картой">
+            <button type="button" id="zoom-in" aria-label="Приблизить карту" title="Приблизить"><svg class="icon"><use href="#ic-plus"/></svg></button>
+            <span class="map-zoom-value" id="zoom-value" aria-live="off">1.0×</span>
+            <button type="button" id="zoom-out" aria-label="Отдалить карту" title="Отдалить"><svg class="icon"><use href="#ic-minus"/></svg></button>
+            <span class="control-divider"></span>
+            <button type="button" id="zoom-reset" aria-label="Сбросить масштаб и положение" title="Сбросить"><svg class="icon"><use href="#ic-reset"/></svg></button>
+          </div>
+          <div class="map-legend" aria-label="Легенда карты"><span><i class="legend-dot legend-dot--free"></i> Свободно</span><span><i class="legend-dot legend-dot--selected"></i> Выбрано</span><span><i class="legend-dot legend-dot--booked"><svg class="icon"><use href="#ic-lock"/></svg></i> Занято</span></div>
+          <div class="map-corner-note">SOLARA <span>·</span> BEACH CLUB</div>
+        </div>
+
+        <form class="filters-panel glass-panel" id="filters-panel" aria-label="Фильтры зон отдыха">
+          <div class="panel-heading"><div><span class="panel-kicker">ПОИСК ПО КАРТЕ</span><h2>Найти место</h2></div><button type="button" class="icon-button filter-close" data-action="toggle-filters" aria-label="Закрыть фильтры"><svg class="icon"><use href="#ic-close"/></svg></button></div>
+          <fieldset class="form-field"><legend class="field-label">Тип зоны</legend><div class="filter-type-grid" id="filter-types"></div></fieldset>
+          <div class="form-field"><label class="field-label" for="filter-guests">Количество гостей</label><div class="stepper stepper--wide"><button type="button" data-action="filter-guests-minus" aria-label="Уменьшить число гостей"><svg class="icon"><use href="#ic-minus"/></svg></button><output id="filter-guests" aria-live="polite">2</output><button type="button" data-action="filter-guests-plus" aria-label="Увеличить число гостей"><svg class="icon"><use href="#ic-plus"/></svg></button></div></div>
+          <div class="form-field price-field"><div class="price-field__top"><label class="field-label" for="price-range">Максимальная цена</label><strong id="price-display">9 000 ₽</strong></div><input type="range" id="price-range" min="2000" max="9000" step="100" value="9000" aria-label="Максимальная стоимость в рублях за день"><div class="range-values"><span>2 000 ₽</span><span>9 000 ₽</span></div></div>
+          <div class="filter-count-label" id="filter-count" aria-live="polite">Найдено 15 мест</div>
+          <button type="submit" class="btn btn--accent btn--full"><svg class="icon"><use href="#ic-search"/></svg> Показать места <svg class="icon icon--right"><use href="#ic-arrow-right"/></svg></button>
+          <button type="button" class="btn btn--ghost btn--full" data-action="reset-filters"><svg class="icon"><use href="#ic-reset"/></svg> Сбросить фильтры</button>
+        </form>
+
+        </div><!-- /map-column: map and overlapping filters only -->
+
+        <aside class="selection-panel glass-panel" id="selection-panel" aria-label="Выбранная зона"></aside>
+      </section>
+
+      <section class="catalog-section" id="zones">
+        <div class="catalog-header"><div><span class="eyebrow">ВЫБРАТЬ И ЗАБРОНИРОВАТЬ</span><h2>Зоны отдыха<span class="header-sparkle">✳</span></h2></div><p>Своя атмосфера для каждого момента.<br>Найдите место, которое подходит именно вам.</p></div>
+        <div class="catalog-toolbar"><div class="catalog-tabs" id="catalog-tabs" role="group" aria-label="Категории зон"></div><div class="catalog-toolbar__right"><label class="sort-wrapper" for="sort-select"><span class="sr-only">Сортировка</span><select id="sort-select"><option value="default">По умолчанию</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option><option value="capacity">По вместимости</option></select><svg class="icon"><use href="#ic-chevron-down"/></svg></label><div class="view-toggle" role="group" aria-label="Вид каталога"><button class="is-active" type="button" data-view="map" aria-pressed="true"><svg class="icon"><use href="#ic-map"/></svg> <span>Карта</span></button><button type="button" data-view="list" aria-pressed="false"><svg class="icon"><use href="#ic-list"/></svg> <span>Список</span></button></div></div></div>
+        <div class="catalog-results-info"><span id="result-summary">15 мест</span><span class="results-info__side">ВСЕ ЦЕНЫ УКАЗАНЫ ЗА ДЕНЬ</span></div>
+        <div class="catalog-grid" id="catalog-grid" aria-live="polite"></div>
+        <div class="catalog-empty" id="catalog-empty" hidden><span class="empty-icon"><svg class="icon"><use href="#ic-search"/></svg></span><h3>Подходящих мест не нашлось</h3><p>Попробуйте уменьшить количество гостей или изменить максимальную стоимость.</p><button type="button" class="btn btn--accent" data-action="reset-filters">Сбросить фильтры</button></div>
+      </section>
+
+      <section class="about-section" id="about"><div class="about-section__left"><span class="eyebrow">SOLARA BEACH CLUB</span><h2>Отдых, в котором<br>всё <em>на своём месте.</em></h2></div><div class="about-section__right"><p>Комфортные лежаки с зонтами у моря и просторные беседки среди пальм. Выбирайте любимое место прямо на интерактивной карте.</p><div class="about-features"><span><svg class="icon"><use href="#ic-sun"/></svg> Первая линия</span><span><svg class="icon"><use href="#ic-shield"/></svg> Удобное бронирование</span></div></div></section>
+      <section class="rules-section" id="rules"><div><span class="eyebrow">ВАЖНО ЗНАТЬ</span><h2>Правила бронирования</h2></div><div class="rules-grid"><p><b>01 /</b> Выбранное место бронируется целиком. Количество гостей не может превышать вместимость.</p><p><b>02 /</b> Бронирование доступно на срок от 1 до 30 дней. Оплата на сайте не производится.</p><p><b>03 /</b> Вы можете отменить созданную бронь в разделе «Мои брони» и снова освободить место.</p></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-brand">SOLARA <span>BEACH CLUB</span></div><p>Учебное демо: бронирования сохраняются только в этом браузере.</p><span>© 2026 SOLARA. DESIGN DEMO</span></footer>
+  </div>
+
+  <div class="drawer-overlay" id="drawer-overlay" hidden></div>
+  <aside class="bookings-drawer" id="bookings-drawer" role="dialog" aria-modal="true" aria-labelledby="bookings-title" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">ВАШИ ПЛАНЫ</span><h2 id="bookings-title">Мои брони <span id="drawer-count">0</span></h2></div><button type="button" class="icon-button" data-action="close-bookings" aria-label="Закрыть мои брони"><svg class="icon"><use href="#ic-close"/></svg></button></div>
+    <div class="drawer-list" id="bookings-list"></div>
+    <div class="drawer-bottom"><p>Учебное демо: бронирования сохраняются только в этом браузере.</p><button class="text-danger" type="button" data-action="reset-bookings" id="clear-bookings">Сбросить демонстрационные бронирования</button></div>
+  </aside>
+  <div class="modal-backdrop" id="modal-backdrop" hidden><div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"></div></div>
+  <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>
